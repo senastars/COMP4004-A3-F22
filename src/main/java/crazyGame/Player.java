@@ -26,6 +26,7 @@ public class Player {
         return hand;
     }
     public String setHand(String hand){
-        return hand;
+        this.hand = hand;
+        return this.hand;
     }
 }
