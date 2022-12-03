@@ -30,4 +30,19 @@ public class PlayerStepDef {
     public void aPlayerScoreIsAfterScore(int afterScore) {
         assertEquals(player.getScore(),afterScore);
     }
+
+    @Given("a player has whatever")
+    public void aPlayerHasWhatever() {
+    }
+
+    @When("they get dealt {string}")
+    public void theyGetDealtCards(String cards) {
+        player.setHand(cards);
+    }
+
+    @Then("a player hand is {string}")
+    public void aPlayerHandIsHand(String hand) {
+        assertEquals(hand,player.getHand());
+    }
+
 }

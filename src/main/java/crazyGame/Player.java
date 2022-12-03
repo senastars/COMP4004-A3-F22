@@ -7,6 +7,7 @@ Player stores
  */
 public class Player {
     private int score;
+    private String hand;
 
 
     public Player() {
@@ -19,5 +20,12 @@ public class Player {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public String getHand() {
+        return hand;
+    }
+    public String setHand(String hand){
+        return hand;
     }
 }

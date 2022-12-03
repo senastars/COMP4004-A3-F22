@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/crazyGame/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/crazyGame/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/cucumber/PlayerStepDef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/player.feature" afterDir="false" />
+    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="U - TEST&#10;&#10;Created score getters and setters (maven automaticlly filled in the code for getters and setters)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/crazyGame/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crazyGame/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/PlayerStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cucumber/PlayerStepDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/player.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/player.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +69,14 @@
       <option name="presentableId" value="Default" />
       <updated>1670086537144</updated>
     </task>
+    <task id="LOCAL-00001" summary="U - TEST&#10;&#10;Created score getters and setters (maven automaticlly filled in the code for getters and setters)">
+      <created>1670089687220</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670089687220</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -86,5 +89,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="U - TEST&#10;&#10;Created score getters and setters (maven automaticlly filled in the code for getters and setters)" />
+    <option name="LAST_COMMIT_MESSAGE" value="U - TEST&#10;&#10;Created score getters and setters (maven automaticlly filled in the code for getters and setters)" />
   </component>
 </project>
