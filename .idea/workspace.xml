@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="U - TEST&#10;&#10;Created score getters and setters (maven automaticlly filled in the code for getters and setters)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crazyGame/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crazyGame/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/PlayerStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cucumber/PlayerStepDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/player.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/player.feature" afterDir="false" />
+    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="U - CODE&#10;&#10;Code for setter of setHand">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/game.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/crazyGame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crazyGame/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +74,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670089687220</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="U - TEST&#10;&#10;Created score getters and setters for hand">
+      <created>1670096060132</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670096060132</updated>
+    </task>
+    <task id="LOCAL-00003" summary="U - CODE&#10;&#10;Code for setter of setHand">
+      <created>1670096294981</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670096294981</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -92,6 +104,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="U - TEST&#10;&#10;Created score getters and setters (maven automaticlly filled in the code for getters and setters)" />
-    <option name="LAST_COMMIT_MESSAGE" value="U - TEST&#10;&#10;Created score getters and setters (maven automaticlly filled in the code for getters and setters)" />
+    <MESSAGE value="U - TEST&#10;&#10;Created score getters and setters for hand" />
+    <MESSAGE value="U - CODE&#10;&#10;Code for setter of setHand" />
+    <option name="LAST_COMMIT_MESSAGE" value="U - CODE&#10;&#10;Code for setter of setHand" />
   </component>
 </project>
