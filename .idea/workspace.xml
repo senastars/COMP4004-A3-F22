@@ -4,12 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="U - Test&#10;&#10;Tests for games">
+    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="U - Code&#10;&#10;Code for pass tests">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/DemoApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/GameServerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/MessagingStompWebsocketApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/controllers/GreetingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/controllers/JoinController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/resourceRepresentationClasses/Greeting.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/resourceRepresentationClasses/HelloMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/resourceRepresentationClasses/JoinMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/online.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crazyGame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crazyGame/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crazyGame/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crazyGame/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/GameStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cucumber/GameStepDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/game.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/game.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +48,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/g3tho/OneDrive/Documents/2022-2023/COMP 4004/A3/COMP4004-A3-F22/src/test/java/cucumber",
+    "last_opened_file_path": "C:/Users/g3tho/OneDrive/Documents/2022-2023/COMP 4004/integration-test-spring-web-master/integration-test-spring-web-master",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -50,11 +58,32 @@
     <configuration name="All in COMP4004-A3-F22" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP4004-A3-F22" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Create App" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="false" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/../../integration-test-spring-web-master/integration-test-spring-web-master" />
+      <option name="SCRIPT_OPTIONS" value="./mvnw spring-boot:run" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.All in COMP4004-A3-F22" />
+      <item itemvalue="Shell Script.Create App" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in COMP4004-A3-F22" />
@@ -98,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670099144066</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="U - Code&#10;&#10;Code for pass tests">
+      <created>1670114993311</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670114993311</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -117,6 +153,7 @@
     <MESSAGE value="U - TEST&#10;&#10;Created score getters and setters for hand" />
     <MESSAGE value="U - CODE&#10;&#10;Code for setter of setHand" />
     <MESSAGE value="U - Test&#10;&#10;Tests for games" />
-    <option name="LAST_COMMIT_MESSAGE" value="U - Test&#10;&#10;Tests for games" />
+    <MESSAGE value="U - Code&#10;&#10;Code for pass tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="U - Code&#10;&#10;Code for pass tests" />
   </component>
 </project>
