@@ -12,6 +12,7 @@ public class Player {
 
     public Player() {
         this.score = 0;
+        this.hand = ",";
     }
 
     public int getScore() {
@@ -20,6 +21,10 @@ public class Player {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public void addScore(int score){
+        this.score+=score;
     }
 
     public String getHand() {

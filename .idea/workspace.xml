@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="U - CODE&#10;&#10;Code for setter of setHand">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/game.feature" afterDir="false" />
+    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="U - Test&#10;&#10;Tests for games">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/crazyGame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crazyGame/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/crazyGame/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crazyGame/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/GameStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cucumber/GameStepDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/game.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/game.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670096294981</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="U - Test&#10;&#10;Tests for games">
+      <created>1670099144066</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670099144066</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,6 +116,7 @@
     <MESSAGE value="U - TEST&#10;&#10;Created score getters and setters (maven automaticlly filled in the code for getters and setters)" />
     <MESSAGE value="U - TEST&#10;&#10;Created score getters and setters for hand" />
     <MESSAGE value="U - CODE&#10;&#10;Code for setter of setHand" />
-    <option name="LAST_COMMIT_MESSAGE" value="U - CODE&#10;&#10;Code for setter of setHand" />
+    <MESSAGE value="U - Test&#10;&#10;Tests for games" />
+    <option name="LAST_COMMIT_MESSAGE" value="U - Test&#10;&#10;Tests for games" />
   </component>
 </project>
