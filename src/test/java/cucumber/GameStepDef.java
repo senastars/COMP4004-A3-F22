@@ -1,11 +1,10 @@
 package cucumber;
 
-import crazyGame.Player;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import crazyGame.Game;
+import com.example.crazy.Game;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

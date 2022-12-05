@@ -1,17 +1,14 @@
 package com.example.crazy;
 
-import com.example.crazy.resourceRepresentationClasses.Greeting;
-import com.example.crazy.resourceRepresentationClasses.HelloMessage;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.util.HtmlUtils;
-
-import static org.apache.logging.log4j.message.MapMessage.MapFormat.JSON;
 
 @Controller
 public class GameServerController {
     int numOfPLayer = 0;
+    Game game;
     /*@MessageMapping("/hello") -> Recieve a request from client from client under this route
     @SendTo("/topic/greetings") -> Send it back to client under this title
     public Greeting greeting(HelloMessage message) throws Exception {
@@ -24,10 +21,56 @@ public class GameServerController {
     public String newPlayer(){
         String playerNum = new String(String.valueOf(numOfPLayer));
         numOfPLayer++;
+        String res = "";
+        res = res + playerNum +",";
         if(numOfPLayer == 3){
-
+            res = res + "b" +",";
         }
-        return playerNum;
+        return res;
     }
+
+    @MessageMapping("/startGame")
+    @SendTo("/player/startGame")
+    public String startGame(){
+        this.game = new Game();
+        //game.getStockPile();
+        //also draw put leave for now
+        String res = this.game.getStockPile();
+
+        return res;
+    }
+
+    @MessageMapping("/getHand")
+    @SendTo("/player/receiveHand")
+    public String sendHand(){
+        //game.getPlayerTurn();
+        System.out.println("HEREE ");
+        String res = "";
+        res= res + game.getPlayerTurn() + game.getPlayers()[game.playerTurn].getHand();
+        game.nextPlayer(true);
+
+
+        return res;
+    }
+    @MessageMapping("/playTurn")
+    @SendTo("/player/receiveTurn")
+    public String sendTurn(){
+        //game.getPlayerTurn();
+        String res = "";
+        res= res + game.getPlayerTurn();
+
+        return res;
+    }
+    @MessageMapping("/updateGame")
+    @SendTo("/player/receiveTurn")
+    public String updateGame(String req){
+        //game.getPlayerTurn();
+        String res = "";
+        res= res + game.getPlayerTurn();
+
+        return res;
+    }
+
+
 
 }

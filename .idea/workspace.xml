@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="U - Code&#10;&#10;Code for pass tests">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/DemoApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/GameServerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/MessagingStompWebsocketApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/WebSocketConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/controllers/GreetingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/controllers/JoinController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/resourceRepresentationClasses/Greeting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/resourceRepresentationClasses/HelloMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/resourceRepresentationClasses/JoinMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/online.feature" afterDir="false" />
+    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="Refactor - Adding webdriver basic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crazy/GameServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/GameServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/crazyGame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/crazyGame/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/GameStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cucumber/GameStepDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/PlayerStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cucumber/PlayerStepDef.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +48,62 @@
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Cucumber Java.Feature: player">
+    <configuration name="Feature: game" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/game.feature" />
+      <option name="GLUE" value="cucumber" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="COMP4004-A3-F22" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: game" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Feature: online" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/online.feature" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="COMP4004-A3-F22" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: online" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Feature: player" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/player.feature" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="COMP4004-A3-F22" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: player" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in COMP4004-A3-F22" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP4004-A3-F22" />
       <option name="PACKAGE_NAME" value="" />
@@ -81,12 +130,18 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Cucumber Java.Feature: game" />
+      <item itemvalue="Cucumber Java.Feature: online" />
+      <item itemvalue="Cucumber Java.Feature: player" />
       <item itemvalue="JUnit.All in COMP4004-A3-F22" />
       <item itemvalue="Shell Script.Create App" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Feature: player" />
+        <item itemvalue="Cucumber Java.Feature: online" />
         <item itemvalue="JUnit.All in COMP4004-A3-F22" />
+        <item itemvalue="Cucumber Java.Feature: game" />
       </list>
     </recent_temporary>
   </component>
@@ -134,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670114993311</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Refactor - Adding webdriver basic">
+      <created>1670188580567</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670188580567</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,6 +216,7 @@
     <MESSAGE value="U - CODE&#10;&#10;Code for setter of setHand" />
     <MESSAGE value="U - Test&#10;&#10;Tests for games" />
     <MESSAGE value="U - Code&#10;&#10;Code for pass tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="U - Code&#10;&#10;Code for pass tests" />
+    <MESSAGE value="Refactor - Adding webdriver basic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor - Adding webdriver basic" />
   </component>
 </project>
