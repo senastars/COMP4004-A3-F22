@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="Refactor - Adding webdriver basic">
+    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="Refactor - Adding basic functionality">
+      <change afterPath="$PROJECT_DIR$/src/test/java/cucumber/CucumberRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/cucumber/DriverHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crazy/GameServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/GameServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crazyGame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crazyGame/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/GameStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cucumber/GameStepDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/PlayerStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cucumber/PlayerStepDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/online.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/online.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +86,7 @@
     <configuration name="Feature: player" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/player.feature" />
+      <option name="GLUE" value="cucumber" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="COMP4004-A3-F22" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
@@ -196,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670188580567</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Refactor - Adding basic functionality">
+      <created>1670212929176</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670212929176</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -217,6 +222,7 @@
     <MESSAGE value="U - Test&#10;&#10;Tests for games" />
     <MESSAGE value="U - Code&#10;&#10;Code for pass tests" />
     <MESSAGE value="Refactor - Adding webdriver basic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor - Adding webdriver basic" />
+    <MESSAGE value="Refactor - Adding basic functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor - Adding basic functionality" />
   </component>
 </project>

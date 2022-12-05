@@ -1,7 +1,36 @@
-Feature: Joining Online
+Feature: Test Cases
 
-  Scenario: First Player Joins the game
-    Given Open the Chrome and launch the application
-    And Join button is displayed
-    When User presses the join button
-    Then User will see waiting for other players screen
+  Background: Open the Chrome tab And launch the application And the user is connected
+  Scenario: Row 41
+    Given The game has started
+    When Player 1 plays "3C"
+    Then The next player is 2
+
+  Scenario: Row 43
+    Given The game has started
+    When Player 1 plays "1H"
+    Then The next player is 4
+    And interface switches direction
+    When Player 4 plays "7H"
+    Then The next player is 3
+
+  Scenario: Row 44
+    Given The game has started
+    When Player 1 plays "QC"
+    Then The next player is 3
+
+  Scenario: Row 45
+    Given The game has started
+    When Player 4 plays "3C"
+    Then The next player is 1
+
+  Scenario: Row 47
+    Given The game has started
+    When Player 4 plays "1H"
+    Then The next player is 3
+    And interface switches direction
+
+  Scenario: Row 48
+    Given The game has started
+    When Player 4 plays "QC"
+    Then The next player is 2
