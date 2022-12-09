@@ -57,10 +57,14 @@ function connect() {
         stompClient.subscribe('/player/id', function(res){
             console.log("RIGHT HERE" + res.body);
             //console.log(res.body[0]);
+            if(res[0] = "-1"){
+               $("#greetings").append("<tr><td> There is an error </td></tr>");
+            }
             $("#greetings").append("<tr><td> Player " + res.body[0] + " has joined </td></tr>");
             if(!id){ // set id if not set already
                 id = res.body[0];
             }
+            console.log(res.body)
             if(res.body.length > 2){
                 if(res.body[2] == "b"){
                     setStartGame(true);

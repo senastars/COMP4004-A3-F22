@@ -2,6 +2,7 @@ Feature: Test Cases
 
   Background:
    Given Open the Chrome tab
+    And game is reset
     And all users are connected
   Scenario: Row 41
     Given The game has started

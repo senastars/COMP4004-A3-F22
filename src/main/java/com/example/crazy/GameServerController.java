@@ -1,6 +1,7 @@
 package com.example.crazy;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +20,11 @@ public class GameServerController {
     @Autowired
     Game game;
 
+    @PostConstruct
+    public void init(){
+        numOfPLayer = 0;
+    }
+
     public Game getGame() {
         return game;
     }
@@ -32,13 +38,22 @@ public class GameServerController {
     @MessageMapping("/newPlayer")
     @SendTo("/player/id")
     public String newPlayer(){
-        String playerNum = new String(String.valueOf(numOfPLayer));
-        numOfPLayer++;
         String res = "";
-        res = res + playerNum +",";
-        if(numOfPLayer == 3){
-            res = res + "b" +",";
+        if(game.numPlayer < 4){
+            game.addPlayer();
+            String playerNum = new String(String.valueOf(game.numPlayer-1));
+            //String playerNum = new String(String.valueOf(numOfPLayer));
+            //numOfPLayer++;
+
+            res = res + playerNum +",";
+            if(game.numPlayer == 4){
+                res = res + "b" +",";
+            }
         }
+        else {
+            res = "-1";
+        }
+
         return res;
     }
 

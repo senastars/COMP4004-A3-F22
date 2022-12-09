@@ -10,12 +10,20 @@ import io.cucumber.java.en.When;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
+
+import java.time.Duration;
+
+import static io.netty.util.ResourceLeakDetector.isEnabled;
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+//import static org.openqa.selenium.support.ui.ExpectedConditions.isEnabled;
 
 //@CucumberContextConfiguration
 //@SpringBootTest(classes = TestConfig.class)
@@ -34,6 +42,12 @@ public class WebStepDef {
     }
     @After
     public static void tearDown(){DriverHelper.tearDown();}
+
+    @And("game is reset")
+    public void gameIsReset() {
+        gameServerController.init();
+        gameServerController.getGame().init();
+    }
     //-------------BACKGROUND ----
     @Given("Open the Chrome tab")
     public void openTheChromeTab() {
@@ -48,6 +62,10 @@ public class WebStepDef {
 
         DriverHelper.openPage(3,"http://localhost:8080/");
         PageFactory.initElements(DriverHelper.getDriver(3), this);
+        for (int i =0; i<4; i++){
+            new WebDriverWait(DriverHelper.getDriver(i), Duration.ofSeconds(3)).until(visibilityOf(DriverHelper.getDriver(i).findElement(By.id("connect"))));
+        }
+        System.out.println("All Connected");
     }
 
     @And("all users are connected")
@@ -56,6 +74,10 @@ public class WebStepDef {
         DriverHelper.getDriver(1).findElement(By.id("connect")).click();
         DriverHelper.getDriver(2).findElement(By.id("connect")).click();
         DriverHelper.getDriver(3).findElement(By.id("connect")).click();
+
+        for (int i =0; i<4; i++){
+            new WebDriverWait(DriverHelper.getDriver(i), Duration.ofSeconds(5)).until(elementToBeClickable(DriverHelper.getDriver(i).findElement(By.id("startGame"))));
+        }
         System.out.println("IT WORKS");
     }
 
