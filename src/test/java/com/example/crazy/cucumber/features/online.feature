@@ -1,6 +1,8 @@
 Feature: Test Cases
 
-  Background: Open the Chrome tab And launch the application And the user is connected
+  Background:
+   Given Open the Chrome tab
+    And all users are connected
   Scenario: Row 41
     Given The game has started
     When Player 1 plays "3C"

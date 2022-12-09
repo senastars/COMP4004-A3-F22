@@ -1,14 +1,27 @@
 package com.example.crazy;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
+
 @Controller
+@Component("GameServerController")
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class GameServerController {
     int numOfPLayer = 0;
+    @Autowired
     Game game;
+
+    public Game getGame() {
+        return game;
+    }
     /*@MessageMapping("/hello") -> Recieve a request from client from client under this route
     @SendTo("/topic/greetings") -> Send it back to client under this title
     public Greeting greeting(HelloMessage message) throws Exception {
