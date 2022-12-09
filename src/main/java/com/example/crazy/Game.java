@@ -27,6 +27,7 @@ public class Game {
     String intDeck = "1D,2D,3D,4D,5D,6D,7D,8D,9D,10D,JD,QD,KD,1H,2H,3H,4H,5H,6H,7H,8H,9H,10H,JH,QH,KH,1C,2C,3C,4C,5C,6C,7C,8C,9C,10C,JC,QC,KC,1S,2S,3S,4S,5S,6S,7S,8S,9S,10S,JS,QS,KS,";
     String stockPile;
     int playerTurn;
+    String direction;
     public Game(){
         players = new Player[4];
         players[0] = new Player();
@@ -44,6 +45,7 @@ public class Game {
         players = new Player[0];
         playerTurn = 0;
         numPlayer =0;
+        direction = "Up";
         //Add stuff like round- turn number and playdirection and gameover
     }
 
@@ -154,6 +156,14 @@ public class Game {
             players[i].addScore(temp);
 
         }
+    }
+
+    public void playCard(String card) {
+        return;
+    }
+
+    public String getDirection() {
+        return this.direction;
     }
 
     /*

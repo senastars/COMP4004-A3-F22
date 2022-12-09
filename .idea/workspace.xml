@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="Refactor - refactoring everything to make tests work">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="Refactor - refactoring background for test cases">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crazy/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crazy/GameServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/GameServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/crazy/cucumber/WebStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/crazy/cucumber/WebStepDef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/crazy/cucumber/features/online.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/crazy/cucumber/features/online.feature" afterDir="false" />
     </list>
@@ -270,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670606453234</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Refactor - refactoring background for test cases">
+      <created>1670610803707</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670610803707</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -294,6 +298,7 @@
     <MESSAGE value="Refactor - Adding basic functionality" />
     <MESSAGE value="A - Test&#10;&#10;First round of tests" />
     <MESSAGE value="Refactor - refactoring everything to make tests work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor - refactoring everything to make tests work" />
+    <MESSAGE value="Refactor - refactoring background for test cases" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor - refactoring background for test cases" />
   </component>
 </project>

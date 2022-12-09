@@ -17,12 +17,16 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 import java.time.Duration;
 
 import static io.netty.util.ResourceLeakDetector.isEnabled;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBe;
 //import static org.openqa.selenium.support.ui.ExpectedConditions.isEnabled;
 
 //@CucumberContextConfiguration
@@ -89,22 +93,33 @@ public class WebStepDef {
         //this.gameServerController =
         System.out.print("-----GAME "+ gameServerController.getGame().getStockPile());
     }
+    @And("Player {int} hand is {string}")
+    public void playerHandIs(int playernum, String hand) {
+        gameServerController.getGame().getPlayers()[playernum].setHand(hand);
+    }
 
     @When("Player {int} plays {string}")
     public void playerPlays(int playernum, String card) {
-        System.out.println("test");
+        gameServerController.getGame().playCard(card);
 
     }
 
     @Then("The next player is {int}")
-    public void theNextPlayerIs(int arg0) {
-        System.out.println("test");
-    }
+    public void theNextPlayerIs(int playernum) {
+        int next = gameServerController.getGame().getPlayerTurn();
+        assertEquals(playernum,next);
 
-    @And("interface switches direction")
-    public void interfaceSwitchesDirection() {
-        System.out.println("test");
     }
 
 
+    @And("interface shows that we are going {string}")
+    public void interfaceShowsThatWeAreGoing(String direction) {
+        String gameDir = gameServerController.getGame().getDirection();
+        for (int i = 0; i < 4; i++) {
+            //assertEquals(direction, DriverHelper.getDriver(i).textToBe(By.id("direction")));
+            //Drive
+            //assertTrue(DriverHelper.getDriver(i).textToBe(By.id("direction"), direction));
+            assertEquals(direction,DriverHelper.getDriver(i).findElement(By.id("direction")).getText());
+        }
+    }
 }

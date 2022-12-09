@@ -6,6 +6,7 @@ Feature: Test Cases
     And all users are connected
   Scenario: Row 41
     Given The game has started
+    And Player 1 hand is "3C,JC,"
     When Player 1 plays "3C"
     Then The next player is 2
 
@@ -13,7 +14,7 @@ Feature: Test Cases
     Given The game has started
     When Player 1 plays "1H"
     Then The next player is 4
-    And interface switches direction
+    And interface shows that we are going "down"
     When Player 4 plays "7H"
     Then The next player is 3
 
