@@ -9,7 +9,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -104,12 +107,40 @@ public class WebStepDef {
         System.out.println("*****Player "+ playernum +" plays "+ card);
         DriverHelper.getDriver(playernum).findElement(By.id("card")).sendKeys(card);
         DriverHelper.getDriver(playernum).findElement(By.id("sendCard")).click();
+
+        //currPlayer
+        for (int i =0; i<4; i++){
+            String a = null,b =null;
+            if (playernum == 0){
+                a = "Current Player 1"; b= "Current Player 3";
+            }
+            else if (playernum ==1){
+                a = "Current Player 2"; b= "Current Player 0";
+            }
+            else if (playernum ==2){
+                a = "Current Player 1"; b= "Current Player 3";
+            }
+            else {
+                a = "Current Player 0"; b= "Current Player 2";
+            }
+            WebElement test = (DriverHelper.getDriver(i).findElement(By.id("cp")));
+            System.out.print("*****Test"+ test.getText());
+            //new WebDriverWait(DriverHelper.getDriver(i), Duration.ofSeconds(5)).until(textToBePresentInElementLocated(DriverHelper.getDriver(i).findElement(By.id("startGame"))), a);
+            new WebDriverWait(DriverHelper.getDriver(i), Duration.ofSeconds(5)).until(
+                    ExpectedConditions.or(
+                            ExpectedConditions.textToBePresentInElement(test, a),
+                            ExpectedConditions.textToBePresentInElement(test, b)
+                    )
+            );
+            //new WebDriverWait(DriverHelper.getDriver(i), Duration.ofSeconds(5)).until(elementToBeClickable(DriverHelper.getDriver(i).findElement(By.id("startGame"))));
+        }
         //gameServerController.getGame().playCard(card);
 
     }
 
     @Then("The next player is {int}")
     public void theNextPlayerIs(int playernum) {
+        System.out.println("*****The next player is "+ playernum);
         int next = gameServerController.getGame().getPlayerTurn();
         assertEquals(playernum,next);
 

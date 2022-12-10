@@ -38,7 +38,7 @@ public class Game {
         players = new Player[0];
         playerTurn = 0;
         numPlayer =0;
-        direction = "Up";
+        direction = "up";
         //Add stuff like round- turn number and playdirection and gameover
     }
 
@@ -78,11 +78,19 @@ public class Game {
         return playerTurn;
     }
 
-    public void nextPlayer(boolean flip){
+    public void nextPlayer(){
         System.out.println("NEXT PERSON");
-        playerTurn++;
-        if (playerTurn > 3){
-            playerTurn = 0;
+        if(direction == "up") {
+            playerTurn++;
+            if (playerTurn > 3) {
+                playerTurn = 0;
+            }
+        }
+        else {
+            playerTurn--;
+            if (playerTurn <0){
+                playerTurn =3;
+            }
         }
     }
 
@@ -162,13 +170,26 @@ public class Game {
         //playerTurn;
         String[] currHand = players[playerTurn].getHand().split(",");
         StringBuilder temp = new StringBuilder();
+        String discard = "";
         for (int i = 0; i < currHand.length; i++) {
             if(Objects.equals(currHand[i], card)){
+                discard = currHand[i];
             }
             else{
                 temp.append(currHand[i]).append(",");
             }
         }
+
+        if(discard.charAt(0) == '1'){
+            if(direction == "up"){
+                direction = "down";
+            }
+            else{
+                direction = "up";
+            }
+        }
+        System.out.println("&&&&&&GAME DIRECTON" + direction);
+
         return players[playerTurn].setHand(String.valueOf(temp));
     }
 

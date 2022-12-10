@@ -84,7 +84,7 @@ public class GameServerController {
         res.append(game.getPlayerTurn());
         res.append(",");
         res.append(this.game.players[this.game.getPlayerTurn()].getHand());
-        System.out.println("sendhand res "+ res + " "+ this.game.players[this.game.getPlayerTurn()].getHand() + this.game.stockPile + " "+ this.game.getPlayerTurn());
+        //System.out.println("sendhand res "+ res + " "+ this.game.players[this.game.getPlayerTurn()].getHand() + this.game.stockPile + " "+ this.game.getPlayerTurn());
         //game.nextPlayer(true);
 
 
@@ -114,13 +114,18 @@ public class GameServerController {
     @SendTo("/player/receiveCard")
     public String playingCard(String req){
         String res= "";
-        res = res + game.getPlayerTurn() +","+req+",";
+        res = res + game.getPlayerTurn() +",";
+        String dir="0";
         System.out.println("------REQUEST " + req);
 
         String temp = game.playCard(req);
-        game.nextPlayer(true);
+        game.nextPlayer();
 
-        res = res + game.getPlayerTurn() +"," + temp;
+        if(game.direction == "up"){
+            dir= "1";
+        }
+        //0,3,0,1S:10C,1D,QS,3S,
+        res = res + game.getPlayerTurn() +","+dir +"," +req+ ":" + temp;
         return res;
     }
 

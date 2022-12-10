@@ -104,6 +104,8 @@ function connect() {
                         $('#sendCard').prop("disabled", true)
                     }
 
+                    $("#currPlayer").html("<p id=" +"cp" +">"  +"Current Player " + res.body + "</p>")
+
                 });
         stompClient.subscribe("/player/receiveHand", function(res){
                     console.log("recvied hand "+id +" "+ res);
@@ -116,11 +118,25 @@ function connect() {
         stompClient.subscribe("/player/receiveCard", function (res){
             console.log("RECEIEVED CARD " +res.body)
             if(id == res.body[0]){
-                $("#hand").html("<p>" + res.body + "</p>");
+                let place = res.body.indexOf(":");
+                let hand = res.body.substring(place+1);
+                $("#hand").html("<p>" + hand + "</p>");
             }
             //const split = res.split(",");
-            $("#greetings").append("<tr><td> Player" + res.body[0] +" has played "+ res.body[2] + res.body[3] + res.body[4] + "</td></tr>");
-            $("#greetings").append("<tr><td> Next player is" + res.body[5] + res.body[6] + "</td></tr>");
+            $("#greetings").append("<tr><td> Player " + res.body[0] +" has played "+ res.body[6]+ res.body[7] + res.body[8]  + "</td></tr>");
+
+            if(res.body[4] == "1"){ //If 1 then up
+                console.log("Switching direction to UP")
+                $("#order").html("<p>Turn Order: Up</p>")
+                $("#order").prop("name", "up");
+            }
+            else {
+                console.log("Switching direction to DOWN")
+                $("#order").html("<p>Turn Order: Down</p>")
+                $("#order").prop("name", "down");
+            }
+
+            $("#greetings").append("<tr><td> Next player is" + res.body[2]+ "</td></tr>");
             //GAME LOGIC GOES HERE
             getHand();
             playGame();
