@@ -67,7 +67,7 @@ public class GameServerController {
         //game.getStockPile();
         game.start();
         //also draw put leave for now
-        String res = game.getStockPile();
+        String res = game.getStockPile()+"."+game.discard;
         //this.game.shuffle();
         //this.game.sort();
         System.out.println("In startGame: "+ game.getStockPile() +" Current Hand " + game.players[game.getPlayerTurn()].getHand());
@@ -125,7 +125,7 @@ public class GameServerController {
             dir= "1";
         }
         //0,3,0,1S:10C,1D,QS,3S,
-        res = res + game.getPlayerTurn() +","+dir +"," +req+ ":" + temp;
+        res = res + game.getPlayerTurn() +","+dir +","+"." +req+ ":" + temp;
         return res;
     }
 

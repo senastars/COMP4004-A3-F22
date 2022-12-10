@@ -77,8 +77,12 @@ function connect() {
 
 
         stompClient.subscribe('/player/startGame', function(res){
-             console.log("startingGame");
+             console.log("startingGame " + res);
              $("#game").show();
+             let place = res.body.indexOf(".");
+             let di = res.body.substring(place+1);
+             console.log("PLACE "+ place + " " + di);
+             $("#discardPile").html("The Discard Pile is: "+di);
              getHand();
              playGame();
         });
@@ -117,13 +121,15 @@ function connect() {
 
         stompClient.subscribe("/player/receiveCard", function (res){
             console.log("RECEIEVED CARD " +res.body)
+            let dp = res.body.indexOf(".");
+            let hp = res.body.indexOf(":");
+            let di = res.body.substring(dp+1,hp);
             if(id == res.body[0]){
-                let place = res.body.indexOf(":");
-                let hand = res.body.substring(place+1);
+                let hand = res.body.substring(hp+1);
                 $("#hand").html("<p>" + hand + "</p>");
             }
             //const split = res.split(",");
-            $("#greetings").append("<tr><td> Player " + res.body[0] +" has played "+ res.body[6]+ res.body[7] + res.body[8]  + "</td></tr>");
+            $("#greetings").append("<tr><td> Player " + res.body[0] +" has played "+ di  + "</td></tr>");
 
             if(res.body[4] == "1"){ //If 1 then up
                 console.log("Switching direction to UP")
@@ -137,6 +143,8 @@ function connect() {
             }
 
             $("#greetings").append("<tr><td> Next player is" + res.body[2]+ "</td></tr>");
+
+            $("#discardPile").html("The Discard Pile is: "+di);
             //GAME LOGIC GOES HERE
             getHand();
             playGame();

@@ -29,6 +29,8 @@ public class Game {
     String stockPile;
     int playerTurn;
     String direction;
+
+    String discard;
     public Game(){
     }
 
@@ -39,12 +41,14 @@ public class Game {
         playerTurn = 0;
         numPlayer =0;
         direction = "up";
+        discard = "";
         //Add stuff like round- turn number and playdirection and gameover
     }
 
     public void start(){
         this.shuffle();
         this.sort();
+        this.getTop();
     }
 
     public int addPlayer(){
@@ -59,6 +63,26 @@ public class Game {
             return -1;
         }
         return numPlayer;
+    }
+
+    public String getTop() {
+        String[] tempDeck = this.stockPile.split(",");
+        String top = tempDeck[0];
+
+        //Shifting stockPile
+        System.arraycopy(tempDeck,1,tempDeck,0,tempDeck.length-1);
+        String[] copy = new String[tempDeck.length-1];
+        System.arraycopy(tempDeck, 0, copy, 0, copy.length);
+        tempDeck = new String[copy.length];
+        System.arraycopy(copy, 0, tempDeck, 0, copy.length);
+
+        this.stockPile = "";
+        for (int i = 0; i < tempDeck.length; i++) {
+            this.stockPile = this.stockPile + tempDeck[i] + ",";
+        }
+
+        discard = top;
+        return top;
     }
 
     public String getStockPile() {
@@ -188,6 +212,8 @@ public class Game {
                 direction = "up";
             }
         }
+
+        this.discard = discard;
         System.out.println("&&&&&&GAME DIRECTON" + direction);
 
         return players[playerTurn].setHand(String.valueOf(temp));
