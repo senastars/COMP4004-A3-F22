@@ -6,9 +6,9 @@ Feature: Test Cases
     And all users are connected
   Scenario: Row 41
     Given The game has started
-    And Player 1 hand is "3C,JC,"
-    When Player 1 plays "3C"
-    Then The next player is 2
+    And Player 0 hand is "3C,JC,"
+    When Player 0 plays "3C"
+    Then The next player is 1
 
   Scenario: Row 43
     Given The game has started

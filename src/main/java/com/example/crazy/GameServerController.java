@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -23,6 +24,8 @@ public class GameServerController {
     @PostConstruct
     public void init(){
         numOfPLayer = 0;
+        //this.game = new Game();
+        //game.init();
     }
 
     public Game getGame() {
@@ -60,10 +63,14 @@ public class GameServerController {
     @MessageMapping("/startGame")
     @SendTo("/player/startGame")
     public String startGame(){
-        this.game = new Game();
+        //game.init();
         //game.getStockPile();
+        game.start();
         //also draw put leave for now
-        String res = this.game.getStockPile();
+        String res = game.getStockPile();
+        //this.game.shuffle();
+        //this.game.sort();
+        System.out.println("In startGame: "+ game.getStockPile() +" Current Hand " + game.players[game.getPlayerTurn()].getHand());
 
         return res;
     }
@@ -72,14 +79,18 @@ public class GameServerController {
     @SendTo("/player/receiveHand")
     public String sendHand(){
         //game.getPlayerTurn();
-        System.out.println("HEREE ");
-        String res = "";
-        res= res + game.getPlayerTurn() + game.getPlayers()[game.playerTurn].getHand();
-        game.nextPlayer(true);
+        System.out.println("HEREE in sendHand");
+        StringBuilder res = new StringBuilder();
+        res.append(game.getPlayerTurn());
+        res.append(",");
+        res.append(this.game.players[this.game.getPlayerTurn()].getHand());
+        System.out.println("sendhand res "+ res + " "+ this.game.players[this.game.getPlayerTurn()].getHand() + this.game.stockPile + " "+ this.game.getPlayerTurn());
+        //game.nextPlayer(true);
 
 
-        return res;
+        return String.valueOf(res);
     }
+
     @MessageMapping("/playTurn")
     @SendTo("/player/receiveTurn")
     public String sendTurn(){
@@ -99,6 +110,19 @@ public class GameServerController {
         return res;
     }
 
+    @MessageMapping("/playCard")
+    @SendTo("/player/receiveCard")
+    public String playingCard(String req){
+        String res= "";
+        res = res + game.getPlayerTurn() +","+req+",";
+        System.out.println("------REQUEST " + req);
+
+        String temp = game.playCard(req);
+        game.nextPlayer(true);
+
+        res = res + game.getPlayerTurn() +"," + temp;
+        return res;
+    }
 
 
 }

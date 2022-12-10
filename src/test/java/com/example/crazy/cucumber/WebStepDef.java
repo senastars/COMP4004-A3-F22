@@ -91,16 +91,20 @@ public class WebStepDef {
         System.out.println("New Game");
         DriverHelper.getDriver(0).findElement(By.id("startGame")).click();
         //this.gameServerController =
-        System.out.print("-----GAME "+ gameServerController.getGame().getStockPile());
+        System.out.print("*****GAME "+ gameServerController.getGame().getStockPile());
     }
     @And("Player {int} hand is {string}")
     public void playerHandIs(int playernum, String hand) {
+        System.out.println("*****Player "+ playernum +" hand is "+ hand);
         gameServerController.getGame().getPlayers()[playernum].setHand(hand);
     }
 
     @When("Player {int} plays {string}")
     public void playerPlays(int playernum, String card) {
-        gameServerController.getGame().playCard(card);
+        System.out.println("*****Player "+ playernum +" plays "+ card);
+        DriverHelper.getDriver(playernum).findElement(By.id("card")).sendKeys(card);
+        DriverHelper.getDriver(playernum).findElement(By.id("sendCard")).click();
+        //gameServerController.getGame().playCard(card);
 
     }
 

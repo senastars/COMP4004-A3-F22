@@ -26,19 +26,20 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-6">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="name">What is your name?</label>
-                    <input type="text" id="name" class="form-control" placeholder="Your name here...">
+    </div>
+    <div id="game" style="display: none;">
+        <div id='discardPile'> <p>Discard pile</p> </div>
+        <div id='stockPile'> <p>Stock Pile</p></div>
+        <p>hand</p><div id='hand'></div>
+        <div id='play'>
+            <form id="tempForm" class="form-inline">
+                <div>
+                    <label for="card">What card do you want to play</label>
+                    <input type="text" id="card">
                 </div>
-                <button id="send" class="btn btn-default" type="submit">Send</button>
+                <button id="sendCard" disabled onclick="playCard()" class="btn btn-default">Send</button>
             </form>
         </div>
-    </div>
-    <div id="game">
-
-
     </div>
     <div class="row">
         <div class="col-md-12">

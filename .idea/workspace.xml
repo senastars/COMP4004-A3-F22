@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="Refactor - refactoring background for test cases">
+    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="A - Test &#10;Wrote the cucumber step defs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crazy/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crazy/GameServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/GameServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/crazy/cucumber/WebStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/crazy/cucumber/WebStepDef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/crazy/cucumber/features/online.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/crazy/cucumber/features/online.feature" afterDir="false" />
     </list>
@@ -274,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670610803707</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="A - Test &#10;Wrote the cucumber step defs">
+      <created>1670612142155</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670612142155</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -299,6 +310,7 @@
     <MESSAGE value="A - Test&#10;&#10;First round of tests" />
     <MESSAGE value="Refactor - refactoring everything to make tests work" />
     <MESSAGE value="Refactor - refactoring background for test cases" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor - refactoring background for test cases" />
+    <MESSAGE value="A - Test &#10;Wrote the cucumber step defs" />
+    <option name="LAST_COMMIT_MESSAGE" value="A - Test &#10;Wrote the cucumber step defs" />
   </component>
 </project>

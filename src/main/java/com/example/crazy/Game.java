@@ -16,6 +16,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
 import java.util.Random;
 
 @Component("Game")
@@ -29,14 +30,6 @@ public class Game {
     int playerTurn;
     String direction;
     public Game(){
-        players = new Player[4];
-        players[0] = new Player();
-        players[1] = new Player();
-        players[2] = new Player();
-        players[3] = new Player();
-        shuffle();
-        sort();
-        playerTurn = 0;
     }
 
     @PostConstruct
@@ -47,6 +40,11 @@ public class Game {
         numPlayer =0;
         direction = "Up";
         //Add stuff like round- turn number and playdirection and gameover
+    }
+
+    public void start(){
+        this.shuffle();
+        this.sort();
     }
 
     public int addPlayer(){
@@ -81,8 +79,9 @@ public class Game {
     }
 
     public void nextPlayer(boolean flip){
+        System.out.println("NEXT PERSON");
         playerTurn++;
-        if (playerTurn > 4){
+        if (playerTurn > 3){
             playerTurn = 0;
         }
     }
@@ -128,6 +127,7 @@ public class Game {
         players[1].setHand(hands[1]);
         players[2].setHand(hands[2]);
         players[3].setHand(hands[3]);
+        System.out.println("Done Sorting");
     }
 
     public void score(){
@@ -158,8 +158,18 @@ public class Game {
         }
     }
 
-    public void playCard(String card) {
-        return;
+    public String playCard(String card) {
+        //playerTurn;
+        String[] currHand = players[playerTurn].getHand().split(",");
+        StringBuilder temp = new StringBuilder();
+        for (int i = 0; i < currHand.length; i++) {
+            if(Objects.equals(currHand[i], card)){
+            }
+            else{
+                temp.append(currHand[i]).append(",");
+            }
+        }
+        return players[playerTurn].setHand(String.valueOf(temp));
     }
 
     public String getDirection() {

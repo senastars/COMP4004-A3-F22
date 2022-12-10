@@ -33,7 +33,7 @@ function getHand(){
 
 function playGame(){
     console.log("In player turn");
-    stompClient.send("/app/playTurn");
+    stompClient.send("/app/playTurn"); //Gets current player
 }
 
 function updateGame(){
@@ -42,6 +42,12 @@ function updateGame(){
     $("#hand").empty();
     stompClient.send("/app/playTurn");
 }
+
+function playCard(){
+    console.log("IN playcard");
+    stompClient.send("/app/playCard", {}, $("#card").val());
+}
+
 
 
 function connect() {
@@ -57,63 +63,72 @@ function connect() {
         stompClient.subscribe('/player/id', function(res){
             console.log("RIGHT HERE" + res.body);
             //console.log(res.body[0]);
-            if(res[0] = "-1"){
-               $("#greetings").append("<tr><td> There is an error </td></tr>");
-            }
-            $("#greetings").append("<tr><td> Player " + res.body[0] + " has joined </td></tr>");
             if(!id){ // set id if not set already
                 id = res.body[0];
             }
-            console.log(res.body)
+            $("#greetings").append("<tr><td> Player " + res.body[0] + " has joined </td></tr>");
+            //console.log(res.body)
             if(res.body.length > 2){
                 if(res.body[2] == "b"){
                     setStartGame(true);
                 }
-                else{
-                    setStartGame(false);
-                    startGame();
-                }
             }
         });
-        stompClient.send("/app/newPlayer")
+
 
         stompClient.subscribe('/player/startGame', function(res){
-            console.log("startingGame");
-            $("#game").append("<div id='discardPile'> <p>Discard pile</p> </div>" +
-            "<div id='stockPile'> <p>Stock Pile</p>" + res.body + "</div>" +
-            "<div id='hand'> <p>hand</p> <div id='play'></div> </div>");
-            getHand();
-            playGame();
+             console.log("startingGame");
+             $("#game").show();
+             getHand();
+             playGame();
         });
 
         stompClient.subscribe("/player/receiveHand", function(res){
-            console.log("recvied hand "+id +" "+ res);
+            //console.log("recvied hand "+id +" "+ res.body);
+            console.log("recieved hand "+id )
             if(id == res.body[0]){
-                $("#hand").append("<p>" + res.body + "</p>");
+                $("#hand").html("<p>" + res.body + "</p>");
             }
 
         });
 
         stompClient.subscribe("/player/receiveTurn", function(res){
-                    console.log("recvied hand "+id +" "+ res);
-                    if(id == res.body[0]){
-                        $("#hand").append(' <form class="form-inline">' +
-                              '<div class="form-group"> <label for="card">What card do you want to play</label>' +
-                              '<input type="text" id="card" class="form-control" >' +
-                              '</div> <button id="send" class="btn btn-default" type="submit">Send</button> </form>');
+                    //console.log("recvied turn "+id +" "+ res);
+                    console.log("recieved turn" + id)
+                    if(id == res.body){
+                        console.log("SETTING BUTTON")
+                        $("#sendCard").prop("disabled", false)
+                    }
+                    else{
+                        console.log("CAN'T PLAY NOT YOUR TURN")
+                        $('#sendCard').prop("disabled", true)
                     }
 
                 });
         stompClient.subscribe("/player/receiveHand", function(res){
                     console.log("recvied hand "+id +" "+ res);
                     if(id == res.body[0]){
-                        $("#hand").append("<p>" + res.body + "</p>");
+                        $("#hand").html("<p>" + res.body + "</p>");
                     }
 
                 });
 
+        stompClient.subscribe("/player/receiveCard", function (res){
+            console.log("RECEIEVED CARD " +res.body)
+            if(id == res.body[0]){
+                $("#hand").html("<p>" + res.body + "</p>");
+            }
+            //const split = res.split(",");
+            $("#greetings").append("<tr><td> Player" + res.body[0] +" has played "+ res.body[2] + res.body[3] + res.body[4] + "</td></tr>");
+            $("#greetings").append("<tr><td> Next player is" + res.body[5] + res.body[6] + "</td></tr>");
+            //GAME LOGIC GOES HERE
+            getHand();
+            playGame();
+
+        });
 
 
+        stompClient.send("/app/newPlayer")
 
     });
 }
@@ -142,9 +157,13 @@ $(function () {
     $("form").on('submit', function (e) {
         e.preventDefault();
     });
+    $("#tempForm").on('submit', function (e) {
+            e.preventDefault();
+        });
     $( "#connect" ).click(function() { connect(); });
     $( "#disconnect" ).click(function() { disconnect(); });
     $( "#startGame" ).click(function() { startGame(); });
-    $("#send").click(function() {updateGame();});
+    //$("#send").click(function() {updateGame();});
+    //$( "#send" ).click(function() {playCard(); });
     //$( "#send" ).click(function() { sendName(); });
 });
