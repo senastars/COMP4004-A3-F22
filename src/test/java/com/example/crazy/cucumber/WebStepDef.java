@@ -118,12 +118,8 @@ public class WebStepDef {
 
     @And("interface shows that we are going {string}")
     public void interfaceShowsThatWeAreGoing(String direction) {
-        String gameDir = gameServerController.getGame().getDirection();
-        for (int i = 0; i < 4; i++) {
-            //assertEquals(direction, DriverHelper.getDriver(i).textToBe(By.id("direction")));
-            //Drive
-            //assertTrue(DriverHelper.getDriver(i).textToBe(By.id("direction"), direction));
-            assertEquals(direction,DriverHelper.getDriver(i).findElement(By.id("direction")).getText());
-        }
+        //Turn Order: Up
+        String gameDir = DriverHelper.getDriver(0).findElement(By.id("order")).getAttribute("name");
+        assertEquals(direction,gameDir);
     }
 }

@@ -12,11 +12,11 @@ Feature: Test Cases
 
   Scenario: Row 43
     Given The game has started
-    When Player 1 plays "1H"
-    Then The next player is 4
-    And interface shows that we are going "down"
-    When Player 4 plays "7H"
+    When Player 0 plays "1H,JC,"
     Then The next player is 3
+    And interface shows that we are going "down"
+    When Player 3 plays "7H,QC,"
+    Then The next player is 2
 
   Scenario: Row 44
     Given The game has started
