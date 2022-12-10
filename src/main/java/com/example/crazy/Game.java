@@ -31,6 +31,7 @@ public class Game {
     String direction;
 
     String discard;
+    Boolean queen;
     public Game(){
     }
 
@@ -42,6 +43,7 @@ public class Game {
         numPlayer =0;
         direction = "up";
         discard = "";
+        queen = false;
         //Add stuff like round- turn number and playdirection and gameover
     }
 
@@ -105,17 +107,42 @@ public class Game {
     public void nextPlayer(){
         System.out.println("NEXT PERSON");
         if(direction == "up") {
-            playerTurn++;
-            if (playerTurn > 3) {
-                playerTurn = 0;
+            if(queen){
+                playerTurn+=2;
+
+                if(playerTurn == 4){
+                    playerTurn = 0;
+                }
+                else if (playerTurn == 5){
+                    playerTurn=1;
+                }
+            }
+            else {
+                playerTurn++;
+                if (playerTurn > 3) {
+                    playerTurn = 0;
+                }
             }
         }
         else {
-            playerTurn--;
-            if (playerTurn <0){
-                playerTurn =3;
+            if(queen){
+                playerTurn-=2;
+
+                if(playerTurn == -1){//aka player 1 turn
+                    playerTurn = 3;
+                }
+                else if (playerTurn == -2){//player 0 turn
+                    playerTurn=2;
+                }
+            }
+            else {
+                playerTurn--;
+                if (playerTurn < 0) {
+                    playerTurn = 3;
+                }
             }
         }
+        queen = false;
     }
 
     public void shuffle(){
@@ -193,6 +220,7 @@ public class Game {
     public String playCard(String card) {
         //playerTurn;
         String[] currHand = players[playerTurn].getHand().split(",");
+        //System.out.println("eight " + eight);
         StringBuilder temp = new StringBuilder();
         String discard = "";
         for (int i = 0; i < currHand.length; i++) {
@@ -204,7 +232,9 @@ public class Game {
             }
         }
 
-        if(discard.charAt(0) == '1'){
+        String set = players[playerTurn].setHand(String.valueOf(temp));
+
+        if(discard.charAt(0) == '1' && discard.charAt(1) != '0'){
             if(direction == "up"){
                 direction = "down";
             }
@@ -212,11 +242,39 @@ public class Game {
                 direction = "up";
             }
         }
+        else if(discard.charAt(0) == 'Q'){
+            queen  =true;
+        }
 
         this.discard = discard;
         System.out.println("&&&&&&GAME DIRECTON" + direction);
 
-        return players[playerTurn].setHand(String.valueOf(temp));
+
+        return set;
+    }
+
+    public String drawCard(){
+        String[] tempDeck = this.stockPile.split(",");
+        String draw = tempDeck[0];
+
+        //Shifting stockPile
+        System.arraycopy(tempDeck,1,tempDeck,0,tempDeck.length-1);
+        String[] copy = new String[tempDeck.length-1];
+        System.arraycopy(tempDeck, 0, copy, 0, copy.length);
+        tempDeck = new String[copy.length];
+        System.arraycopy(copy, 0, tempDeck, 0, copy.length);
+
+        this.stockPile = "";
+        for (int i = 0; i < tempDeck.length; i++) {
+            this.stockPile = this.stockPile + tempDeck[i] + ",";
+        }
+
+        String hand = players[playerTurn].getHand();
+        hand.concat(draw + ",");
+        String set = players[playerTurn].setHand(String.valueOf(hand));
+
+        return draw;
+
     }
 
     public String getDirection() {

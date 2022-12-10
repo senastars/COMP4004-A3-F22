@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="Refactor - changing test case to make row 43 run">
+    <list default="true" id="6f51ea7a-d497-47a1-9d55-48ce9647f4aa" name="Changes" comment="Refactor - Does your interface show in each players window the current top card and who turn it is">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crazy/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crazy/GameServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crazy/GameServerController.java" afterDir="false" />
@@ -305,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670640069687</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Refactor - Does your interface show in each players window the current top card and who turn it is">
+      <created>1670642401375</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670642401375</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -334,6 +341,7 @@
     <MESSAGE value="U-Code/ refactor&#10;&#10;To big to be a code commit but refactored code to make test 41 work" />
     <MESSAGE value="A - Test&#10;&#10;Fixed row 43 test" />
     <MESSAGE value="Refactor - changing test case to make row 43 run" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor - changing test case to make row 43 run" />
+    <MESSAGE value="Refactor - Does your interface show in each players window the current top card and who turn it is" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor - Does your interface show in each players window the current top card and who turn it is" />
   </component>
 </project>

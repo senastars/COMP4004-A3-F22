@@ -48,6 +48,11 @@ function playCard(){
     stompClient.send("/app/playCard", {}, $("#card").val());
 }
 
+function pickCard(){
+    console.log("IN pickCard");
+    stompClient.send("/app/pickCard");
+}
+
 
 
 function connect() {
@@ -102,10 +107,12 @@ function connect() {
                     if(id == res.body){
                         console.log("SETTING BUTTON")
                         $("#sendCard").prop("disabled", false)
+                        $("#pickCard").prop("disabled", false)
                     }
                     else{
                         console.log("CAN'T PLAY NOT YOUR TURN")
                         $('#sendCard').prop("disabled", true)
+                        $("#pickCard").prop("disabled", true)
                     }
 
                     $("#currPlayer").html("<p id=" +"cp" +">"  +"Current Player " + res.body + "</p>")
@@ -143,6 +150,9 @@ function connect() {
             }
 
             $("#greetings").append("<tr><td> Next player is" + res.body[2]+ "</td></tr>");
+            if(res.body[6] == "1"){
+                $("#greetings").append("<tr><td> A Player has had thier turn skip</td></tr>");
+            }
 
             $("#discardPile").html("The Discard Pile is: "+di);
             //GAME LOGIC GOES HERE

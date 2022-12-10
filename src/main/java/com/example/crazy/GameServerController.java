@@ -116,18 +116,45 @@ public class GameServerController {
         String res= "";
         res = res + game.getPlayerTurn() +",";
         String dir="0";
+        String q = "0";
         System.out.println("------REQUEST " + req);
+        //int indexCard = req.indexOf(',');
+        //String oldCard = req.substring(indexCard+1);
+        //System.out.println("------REQUEST OLD CARD " + oldCard);
 
         String temp = game.playCard(req);
+
+        if(game.queen){
+            q = "1";
+        }
         game.nextPlayer();
 
         if(game.direction == "up"){
             dir= "1";
         }
         //0,3,0,1S:10C,1D,QS,3S,
-        res = res + game.getPlayerTurn() +","+dir +","+"." +req+ ":" + temp;
+        res = res + game.getPlayerTurn() +","+dir +","+q+"." +req+ ":" + temp;
         return res;
     }
+
+    @MessageMapping("/pickCard")
+    @SendTo("/player/receiveHand")
+    public String pickingCard(){
+        //String res ="";
+        game.drawCard();
+        StringBuilder res = new StringBuilder();
+        res.append(game.getPlayerTurn());
+        res.append(",");
+        res.append(this.game.players[this.game.getPlayerTurn()].getHand());
+        //System.out.println("sendhand res "+ res + " "+ this.game.players[this.game.getPlayerTurn()].getHand() + this.game.stockPile + " "+ this.game.getPlayerTurn());
+        //game.nextPlayer(true);
+
+
+        return String.valueOf(res);
+
+        //return res;
+    }
+
 
 
 }
