@@ -32,6 +32,8 @@ public class Game {
 
     String discard;
     Boolean queen;
+    Boolean endofGame;
+    int winner;
     public Game(){
     }
 
@@ -44,6 +46,7 @@ public class Game {
         direction = "up";
         discard = "";
         queen = false;
+        endofGame = false;
         //Add stuff like round- turn number and playdirection and gameover
     }
 
@@ -248,6 +251,12 @@ public class Game {
 
         this.discard = discard;
         System.out.println("&&&&&&GAME DIRECTON" + direction);
+
+        if(players[playerTurn].getHand().length() == 0 || players[playerTurn].getHand().length() == 1){
+            endofGame = true;
+            winner = playerTurn;
+            this.score();
+        }
 
 
         return set;

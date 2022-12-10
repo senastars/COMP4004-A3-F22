@@ -128,6 +128,28 @@ function connect() {
 
         stompClient.subscribe("/player/receiveCard", function (res){
             console.log("RECEIEVED CARD " +res.body)
+
+            if(res[0] == "E"){
+                let w = res.body.indexOf("*");
+                let p0 = res.body.indexOf(":");
+                let p1 = res.body.indexOf("!");
+                let p2 = res.body.indexOf("@");
+                let p3 = res.body.indexOf("#");
+                $("#game").hide();
+                let wi = res.body.substring(w,p0);
+                let p0i = res.body.substring(p0+2,p1);
+                let p1i = res.body.substring(p1+2,p2);
+                let p2i = res.body.substring(p2+2,p3);
+                let p3i = res.body.substring(p3+2);
+
+                 $("#greetings").append("<tr><td> Player "+ wi +" is the winner</td></tr>");
+                 $("#greetings").append("<tr><td> Player "+ res.body.substring(p0+1,p0+1) +" scored " + p1i +"</td></tr>");
+                 $("#greetings").append("<tr><td> Player "+ res.body.substring(p1+1,p1+1) +" scored " + p2i +"</td></tr>");
+                 $("#greetings").append("<tr><td> Player "+ res.body.substring(p2+1,p1+1) +" scored " + p3i +"</td></tr>");
+                 $("#greetings").append("<tr><td> Player "+ res.body.substring(p3+1,p3+1) +" scored " + p4i +"</td></tr>");
+
+            }
+
             let dp = res.body.indexOf(".");
             let hp = res.body.indexOf(":");
             let di = res.body.substring(dp+1,hp);

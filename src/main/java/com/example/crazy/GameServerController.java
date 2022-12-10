@@ -132,6 +132,15 @@ public class GameServerController {
         if(game.direction == "up"){
             dir= "1";
         }
+
+        if(game.endofGame){
+            res = "E*"+game.winner;
+            res += ":0" + game.players[0].getScore();
+            res += "!1" + game.players[1].getScore();
+            res += "@2" + game.players[3].getScore();
+            res += "#3" + game.players[4].getScore();
+            return res;
+        }
         //0,3,0,1S:10C,1D,QS,3S,
         res = res + game.getPlayerTurn() +","+dir +","+q+"." +req+ ":" + temp;
         return res;
